@@ -39,9 +39,7 @@ echo
 read -p "Confirm your wallet address (Match the address from the step above) : " WALLET
 echo
 read -p "Confirm your account ID (Recall in the step above) : " ACCOUNT_ID
-echo
 
-show "Keep this private key somewhere safe, you'll be neediing this in future"
 echo
 bunx infinit account export $ACCOUNT_ID
 
