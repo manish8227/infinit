@@ -93,6 +93,10 @@ bunx infinit script execute deployUniswapV3Action.script.ts
 sleep 7
 
 echo
+bunx infinit project compile
+
+
+echo
 # Removing old deployUniswapV3Action script if exists
 rm -rf src/scripts/deployInfinitErc20Action.script.ts
 
