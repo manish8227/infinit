@@ -46,6 +46,15 @@ echo
 bunx infinit account export $ACCOUNT_ID
 
 sleep 5
+
+
+echo
+bun init -y
+bun add @infinit-xyz/cli
+
+echo
+bunx infinit init
+
 echo
 # Removing old deployUniswapV3Action script if exists
 rm -rf src/scripts/deployUniswapV3Action.script.ts
