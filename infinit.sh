@@ -1,6 +1,5 @@
 export NVM_DIR="$HOME/.nvm"
 if [ -s "$NVM_DIR/nvm.sh" ]; then
-    show "Downloading NVM..."
     echo
     source "$NVM_DIR/nvm.sh"
 else
@@ -12,12 +11,8 @@ fi
 
 
 echo
-show "Installing Node.js..."
-echo
 nvm install 22 && nvm alias default 22 && nvm use default
-echo
 
-show "Installing Foundry..."
 echo
 curl -L https://foundry.paradigm.xyz | bash
 export PATH="$HOME/.foundry/bin:$PATH"
@@ -25,36 +20,17 @@ sleep 5
 source ~/.bashrc
 foundryup
 
-sleep 3
-echo
-source /home/codespace/.bashrc
-echo
-sleep 2
-foundryup
-sleep 3
-
-show "Installing Bun..."
 echo
 curl -fsSL https://bun.sh/install | bash
 export PATH="$HOME/.bun/bin:$PATH"
 sleep 5
 source ~/.bashrc
-echo
 
-sleep 3
-echo
-source /home/codespace/.bashrc
-echo
-sleep 2
-
-show "Downloading bun to speed up your deployment..."
 echo
 mkdir infinit-tech && cd infinit-tech
 bun init -y
 bun add @infinit-xyz/cli
-echo
 
-show "Initializing infinit CLI and generating account..."
 echo
 bunx infinit init
 bunx infinit account generate
@@ -62,7 +38,7 @@ echo
 
 read -p "Confirm your wallet address (Match the address from the step above) : " WALLET
 echo
-read -p "Create your account ID (Recall in the step above) : " ACCOUNT_ID
+read -p "Confirm your account ID (Recall in the step above) : " ACCOUNT_ID
 echo
 
 show "Keep this private key somewhere safe, you'll be neediing this in future"
@@ -152,7 +128,6 @@ const signer = {
 export default { params, signer, Action: DeployInfinitERC20Action }
 EOF
 
-show "Deploying your desired token on chain.."
 echo
 bunx infinit script execute deployInfinitErc20Action.script.ts
 
