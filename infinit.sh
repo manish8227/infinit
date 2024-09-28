@@ -3,7 +3,6 @@ if [ -s "$NVM_DIR/nvm.sh" ]; then
     echo
     source "$NVM_DIR/nvm.sh"
 else
-    show "NVM not found, installing NVM..."
     echo
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
     source "$NVM_DIR/nvm.sh"
@@ -86,7 +85,6 @@ const signer = {
 export default { params, signer, Action: DeployUniswapV3Action }
 EOF
 
-show "Executing the UniswapV3 Action script..."
 echo
 bunx infinit script execute deployUniswapV3Action.script.ts
 
